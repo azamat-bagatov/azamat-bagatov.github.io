@@ -226,35 +226,44 @@
             </div>
         </div>
 
-        <div class="buy-section">
-            <h2>Get Your Copy Today (or don't)!</h2>
-            <p>Available through Maslow store</p>
-            
-            <div class="shopify-buy-button">
-                <!-- 
-                REPLACE THIS SECTION WITH YOUR SHOPIFY BUY BUTTON CODE
-                
-                To get your Shopify Buy Button:
-                1. Go to your Shopify admin
-                2. Navigate to Sales Channels > Online Store > Themes
-                3. Or go to Apps and search for "Buy Button"
-                4. Create a new Buy Button for your product
-                5. Copy the embed code and paste it here
-                
-                The code will look something like:
-                <div id='product-component-xxxxx'></div>
-                <script type="text/javascript">
-                  // Shopify generated code here
-                </script>
-                -->
-                
-                <!-- Placeholder button - remove when you add real Shopify button -->
-                <a href="https://shop.maslowcnc.com/cart/48694552723698:1" class="shopify-placeholder">Buy Now - $19.91</a>
-                <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
-                    This is not a scam. Maslow is a legit US company that helps us sell these.
-                </p>
-            </div>
+<div class="buy-section">
+    <h2>Get Your Copy Today!</h2>
+    <p>Sold via Maslow LLC</p>
+    
+    <div class="shopify-buy-button">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin: 30px 0;">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" value="1" min="1" max="99" 
+                   style="width: 60px; padding: 8px; font-size: 1rem; border: 1px solid #ddd; border-radius: 4px;">
+            <a href="#" id="buy-button" class="shopify-placeholder">Buy Now - $19.91</a>
         </div>
+
+        <script>
+            const pricePerBook = 19.91;
+            const quantityInput = document.getElementById('quantity');
+            const buyButton = document.getElementById('buy-button');
+
+            function updatePrice() {
+                const quantity = parseInt(quantityInput.value) || 1;
+                const total = (pricePerBook * quantity).toFixed(2);
+                buyButton.textContent = `Buy Now - $${total}`;
+            }
+
+            // Update price when quantity changes
+            quantityInput.addEventListener('input', updatePrice);
+
+            // Handle button click
+            buyButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                const quantity = quantityInput.value;
+                const cartUrl = `https://shop.maslowcnc.com/cart/48694552723698:${quantity}`;
+                window.location.href = cartUrl;
+            });
+        </script>
+    </div>
+</div>
+		
+		
 
         <div class="about-author">
             <h2>About the Author</h2>
