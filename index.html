@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Book Title - Available Now</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            margin-bottom: 60px;
+        }
+
+        .book-cover {
+            text-align: center;
+        }
+
+        .book-cover img {
+            max-width: 100%;
+            height: auto;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            border-radius: 4px;
+        }
+
+        .book-info h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .book-info p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        .features {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .features h3 {
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .features li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .buy-section {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .buy-section h2 {
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .shopify-buy-button {
+            margin: 30px 0;
+        }
+
+        /* Placeholder for Shopify button */
+        .shopify-placeholder {
+            background: #5E8E3E;
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .shopify-placeholder:hover {
+            background: #4a7230;
+        }
+
+        .about-author {
+            margin-top: 60px;
+            padding: 40px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .about-author h2 {
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #ddd;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .buy-section,
+            .about-author {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Your Book Title Here</h1>
+            <p class="subtitle">A compelling subtitle that hooks your readers</p>
+        </header>
+
+        <div class="main-content">
+            <div class="book-cover">
+                <!-- Replace this with your actual book cover image -->
+                <img src="https://via.placeholder.com/400x600/4a7230/ffffff?text=Your+Book+Cover" alt="Book Cover">
+            </div>
+
+            <div class="book-info">
+                <h2>About This Book</h2>
+                <p>
+                    Start with a compelling hook that grabs your reader's attention. What problem does your book solve? What transformation does it offer? What story does it tell?
+                </p>
+                <p>
+                    Expand on the key themes, ideas, or narrative of your book. Make it personal and engaging. Help potential readers understand why this book is for them.
+                </p>
+                <p>
+                    End with the impact or benefit. What will readers gain? How will they feel after reading it?
+                </p>
+
+                <div class="features">
+                    <h3>What You'll Discover:</h3>
+                    <ul>
+                        <li>Key benefit or insight #1</li>
+                        <li>Key benefit or insight #2</li>
+                        <li>Key benefit or insight #3</li>
+                        <li>Key benefit or insight #4</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="buy-section">
+            <h2>Get Your Copy Today</h2>
+            <p>Available in paperback and digital formats</p>
+            
+            <div class="shopify-buy-button">
+                <!-- 
+                REPLACE THIS SECTION WITH YOUR SHOPIFY BUY BUTTON CODE
+                
+                To get your Shopify Buy Button:
+                1. Go to your Shopify admin
+                2. Navigate to Sales Channels > Online Store > Themes
+                3. Or go to Apps and search for "Buy Button"
+                4. Create a new Buy Button for your product
+                5. Copy the embed code and paste it here
+                
+                The code will look something like:
+                <div id='product-component-xxxxx'></div>
+                <script type="text/javascript">
+                  // Shopify generated code here
+                </script>
+                -->
+                
+                <!-- Placeholder button - remove when you add real Shopify button -->
+                <button class="shopify-placeholder">Buy Now - $XX.XX</button>
+                <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+                    (Replace this with your Shopify Buy Button code)
+                </p>
+            </div>
+        </div>
+
+        <div class="about-author">
+            <h2>About the Author</h2>
+            <p>
+                Tell readers about yourself. What makes you qualified or passionate about this topic? 
+                What's your story? Keep it authentic and relatable.
+            </p>
+            <p>
+                Share any relevant credentials, experiences, or personal anecdotes that connect you to the book's subject matter.
+            </p>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Your Name. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
