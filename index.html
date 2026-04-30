@@ -422,103 +422,42 @@
 </div>
 -->
 
-<!-- COMBINED BUY SECTION -->
-<div class="buy-section">
-    <h2>Acquire Copy</h2>
-    <p>Sold via <span style="font-size: 0.8em; font-style: italic;">(dohuya)</span> Maslow LLC</p>
-    <!-- Book -->
-    <div style="margin: 30px 0; padding: 20px;">
-        <div style="display: flex; align-items: center; justify-content: center; gap: 25px; flex-wrap: wrap;">
-            <img src="images/book-icon.jpg" alt="Book" style="width: 120px; height: auto; border: 2px solid #000; filter: none;">
-            <div style="text-align: left;">
-                <h3 id="book-price-header" style="font-family: 'Special Elite', monospace; text-transform: uppercase; margin-bottom: 15px; font-size: 1.2rem;">Book - $29.99</h3>
-                <div style="display: flex; align-items: center; gap: 15px;">
-                    <label for="book-quantity" style="text-transform: uppercase; font-weight: bold; letter-spacing: 1px;">QTY:</label>
-                    <input type="number" id="book-quantity" value="1" min="0" max="99" 
+        <!-- BUY SECTION -->
+        <div class="buy-section">
+            <h2>Acquire Copy</h2>
+            <p>Sold via Maslow LLC, ships from Seattle</p>
+            
+            <div class="shopify-buy-button">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin: 30px 0;">
+                    <label for="quantity" style="text-transform: uppercase; font-weight: bold; letter-spacing: 1px;">QTY:</label>
+                    <input type="number" id="quantity" value="1" min="1" max="99" 
                            style="width: 60px; padding: 8px; font-size: 1rem; border: 2px solid #000; font-family: 'Courier Prime', monospace; background: #fff;">
+                    <a href="#" id="buy-button" class="shopify-placeholder">Order - $29.99</a>
                 </div>
+
+                <script>
+                    const pricePerBook = 29.99;
+                    const quantityInput = document.getElementById('quantity');
+                    const buyButton = document.getElementById('buy-button');
+
+                    function updatePrice() {
+                        const quantity = parseInt(quantityInput.value) || 1;
+                        const total = (pricePerBook * quantity).toFixed(2);
+                        buyButton.textContent = `Order - $${total}`;
+                    }
+
+                    quantityInput.addEventListener('input', updatePrice);
+
+                    buyButton.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const quantity = quantityInput.value;
+                        const cartUrl = `https://shop.maslowcnc.com/cart/48694552723698:${quantity}`;
+                        window.location.href = cartUrl;
+                    });
+                </script>
             </div>
         </div>
-    </div>
-    
-    <!-- Stickers 
-<div style="margin: 30px 0; padding: 20px; border-top: 2px solid #000;">
-    <div style="display: flex; align-items: center; justify-content: center; gap: 25px; flex-wrap: wrap;">
-        <img src="images/stickers-icon.jpg" alt="Sticker" style="width: 120px; height: auto; border: 2px solid #000;">
-        <div style="text-align: left;">
-            <h3 id="sticker-price-header" style="font-family: 'Special Elite', monospace; text-transform: uppercase; margin-bottom: 15px; font-size: 1.2rem;">Sticker Pack - $9.99</h3>
-            <div style="display: flex; align-items: center; gap: 15px;">
-                <label for="sticker-quantity" style="text-transform: uppercase; font-weight: bold; letter-spacing: 1px;">QTY:</label>
-                <input type="number" id="sticker-quantity" value="0" min="0" max="99" 
-                       style="width: 60px; padding: 8px; font-size: 1rem; border: 2px solid #000; font-family: 'Courier Prime', monospace; background: #fff;">
-            </div>
-        </div>
-    </div>
-</div>
-    -->
-    <!-- Total and Buy Button -->
-    <div style="margin-top: 30px; padding-top: 20px; border-top: 3px solid #000;">
-        <p id="total-display" style="font-family: 'Special Elite', monospace; font-size: 1.4rem; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px;">Total: $29.99</p>
-        <a href="#" id="combined-buy-button" class="shopify-placeholder">Order Now</a>
-		 <p>   </p>
-		 <p>Promocodes applied at checkout</p>
-    </div>
-</div>
-
-<script>
-    // GLOBAL PRICE VARIABLES - UPDATE THESE
-    const BOOK_PRICE = 29.99;
-    const STICKER_PRICE = 9.99;
-    
-    // SHOPIFY VARIANT IDs
-    const bookVariantId = '48694552723698';
-    //const stickerVariantId = '48841371877618'; // YOUR STICKER VARIANT ID HERE
-    
-    // Update price headers on page load
-    document.getElementById('book-price-header').textContent = `Book - $${BOOK_PRICE.toFixed(2)}`;
-    //document.getElementById('sticker-price-header').textContent = `Sticker Pack - $${STICKER_PRICE.toFixed(2)}`;
-    
-    const bookQtyInput = document.getElementById('book-quantity');
-    //const stickerQtyInput = document.getElementById('sticker-quantity');
-    const totalDisplay = document.getElementById('total-display');
-    const buyButton = document.getElementById('combined-buy-button');
-    
-    function updateTotal() {
-        const bookQty = parseInt(bookQtyInput.value) || 0;
-        //const stickerQty = parseInt(stickerQtyInput.value) || 0;
-        
-        const total = (BOOK_PRICE * bookQty); // + (STICKER_PRICE * stickerQty);
-        totalDisplay.textContent = `Total: $${total.toFixed(2)}`;
-    }
-    
-    // Initialize with correct total
-    updateTotal();
-    
-    bookQtyInput.addEventListener('input', updateTotal);
-    //stickerQtyInput.addEventListener('input', updateTotal);
-    
-    buyButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const bookQty = parseInt(bookQtyInput.value) || 0;
-        //const stickerQty = parseInt(stickerQtyInput.value) || 0;
-        
-        if (bookQty === 0 /*&& stickerQty === 0*/) {
-            alert('Please select at least one item');
-            return;
-        }
-        
-        // Build cart URL with multiple items
-        let cartItems = [];
-        if (bookQty > 0) cartItems.push(`${bookVariantId}:${bookQty}`);
-        //if (stickerQty > 0) cartItems.push(`${stickerVariantId}:${stickerQty}`);
-        
-        const cartUrl = `https://shop.maslowcnc.com/cart/${cartItems.join(',')}`;
-        window.location.href = cartUrl;
-    });
-</script>
-
-
+ 
 		
 		<div class="about-author">
             <!-- IMAGE 6: AUTHOR PHOTO (OPTIONAL) -->
