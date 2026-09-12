@@ -358,6 +358,45 @@
     <img src="images/subtitle.png" alt="this guy is the shit" style="display: block;">
 </div>
 
+        <!-- BUY SECTION -->
+        <div class="buy-section">
+            <h2>Acquire Copy</h2>
+            <p>Sold via Maslow LLC, ships from Seattle</p>
+			<p>Promocodes applied at checkout!</p>
+            
+            <div class="shopify-buy-button">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin: 30px 0;">
+                    <label for="quantity" style="text-transform: uppercase; font-weight: bold; letter-spacing: 1px;">QTY:</label>
+                    <input type="number" id="quantity" value="1" min="1" max="99" 
+                           style="width: 60px; padding: 8px; font-size: 1rem; border: 2px solid #000; font-family: 'Courier Prime', monospace; background: #fff;">
+                    <a href="#" id="buy-button" class="shopify-placeholder">Order - $29.99</a>
+                </div>
+
+                <script>
+                    const pricePerBook = 29.99;
+                    const quantityInput = document.getElementById('quantity');
+                    const buyButton = document.getElementById('buy-button');
+
+                    function updatePrice() {
+                        const quantity = parseInt(quantityInput.value) || 1;
+                        const total = (pricePerBook * quantity).toFixed(2);
+                        buyButton.textContent = `Order - $${total}`;
+                    }
+
+                    quantityInput.addEventListener('input', updatePrice);
+
+                    buyButton.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const quantity = quantityInput.value;
+                        const cartUrl = `https://shop.maslowcnc.com/cart/48694552723698:${quantity}`;
+                        window.location.href = cartUrl;
+                    });
+                </script>
+            </div>
+        </div>
+ 
+	
+
 
         <div class="main-content">
     <!-- LEFT COLUMN: Two detail images -->
@@ -422,43 +461,7 @@
 </div>
 -->
 
-        <!-- BUY SECTION -->
-        <div class="buy-section">
-            <h2>Acquire Copy</h2>
-            <p>Sold via Maslow LLC, ships from Seattle</p>
-            
-            <div class="shopify-buy-button">
-                <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin: 30px 0;">
-                    <label for="quantity" style="text-transform: uppercase; font-weight: bold; letter-spacing: 1px;">QTY:</label>
-                    <input type="number" id="quantity" value="1" min="1" max="99" 
-                           style="width: 60px; padding: 8px; font-size: 1rem; border: 2px solid #000; font-family: 'Courier Prime', monospace; background: #fff;">
-                    <a href="#" id="buy-button" class="shopify-placeholder">Order - $29.99</a>
-                </div>
-
-                <script>
-                    const pricePerBook = 29.99;
-                    const quantityInput = document.getElementById('quantity');
-                    const buyButton = document.getElementById('buy-button');
-
-                    function updatePrice() {
-                        const quantity = parseInt(quantityInput.value) || 1;
-                        const total = (pricePerBook * quantity).toFixed(2);
-                        buyButton.textContent = `Order - $${total}`;
-                    }
-
-                    quantityInput.addEventListener('input', updatePrice);
-
-                    buyButton.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const quantity = quantityInput.value;
-                        const cartUrl = `https://shop.maslowcnc.com/cart/48694552723698:${quantity}`;
-                        window.location.href = cartUrl;
-                    });
-                </script>
-            </div>
-        </div>
- 
-		
+	
 		<div class="about-author">
             <!-- IMAGE 6: AUTHOR PHOTO (OPTIONAL) -->
             <div class="author-photo">
